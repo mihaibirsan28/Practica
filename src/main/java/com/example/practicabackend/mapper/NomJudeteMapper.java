@@ -1,2 +1,15 @@
-package com.example.practicabackend.mapper;public interface NomJudeteMapper {
+package com.example.practicabackend.mapper;
+
+import com.example.practicabackend.dto.NomJudeteDTO;
+import com.example.practicabackend.model.NomJudete;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
+@Mapper
+public interface NomJudeteMapper {
+    NomJudeteMapper MAPPER = Mappers.getMapper(NomJudeteMapper.class);
+
+    NomJudeteDTO mapToNomJudeteDTO(NomJudete nomJudete);
+
+    NomJudete mapToNomJudete(NomJudeteDTO nomJudeteDTO);
 }
