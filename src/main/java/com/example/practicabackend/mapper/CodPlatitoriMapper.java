@@ -18,8 +18,9 @@ public interface CodPlatitoriMapper {
 
     CodPlatitori mapToCodPlatitori(CodPlatitoriDTO codPlatitoriDTO);
 
-    Optional<CodPlatitoriDTO> mapToCodPlatitoriDTOOptional(Optional<CodPlatitori> codPlatitoriOptional);
+//    Optional<CodPlatitoriDTO> mapToCodPlatitoriDTOOptional(Optional<CodPlatitori> codPlatitoriOptional);
 
     List<CodPlatitoriDTO> mapToCodPlatitoriDTOList(List<CodPlatitori> codPlatitoriList);
 
+//    Optional<CodPlatitoriDTO> mapToCodPlatitoriDTOOptional(Optional<CodPlatitori> codPlatitoriOptional);
 }

@@ -31,10 +31,13 @@ public class CodAdreseService  {
         return codAdreseDTOList;
     }
 
-    public Optional<CodAdreseDTO> findByIdCodAdrese(Integer id) {
-        Optional<CodAdrese> codAdreseOptional = codAdreseRepository.findById(id);
-        Optional<CodAdreseDTO> codAdreseDTOOptional = codAdreseMapper.mapToCodAdreseDTOOptional(codAdreseOptional);
-        return codAdreseDTOOptional;
+    public CodAdreseDTO findByIdCodAdrese(Integer id) {
+        CodAdrese codAdrese = codAdreseRepository.getById(id);
+        CodAdreseDTO codAdreseDTO = codAdreseMapper.mapToCodAdreseDTO(codAdrese);
+        return codAdreseDTO;
+//        Optional<CodAdrese> codAdreseOptional = codAdreseRepository.findById(id);
+//        Optional<CodAdreseDTO> codAdreseDTOOptional = codAdreseMapper.mapToCodAdreseDTOOptional(codAdreseOptional);
+//        return codAdreseDTOOptional;
     }
 
     public CodAdrese saveCodAdrese(CodAdreseDTO codAdresaDTO) {

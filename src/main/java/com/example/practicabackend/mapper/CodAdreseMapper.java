@@ -14,7 +14,7 @@ public interface CodAdreseMapper {
 
     CodAdreseDTO mapToCodAdreseDTO(CodAdrese codAdrese);
 
-    Optional<CodAdreseDTO> mapToCodAdreseDTOOptional(Optional<CodAdrese> codAdreseOptional);
+//    Optional<CodAdreseDTO> mapToCodAdreseDTOOptional(Optional<CodAdrese> codAdreseOptional);
 
     CodAdrese mapToCodAdrese(CodAdreseDTO codAdreseDTO);
 

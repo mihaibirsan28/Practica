@@ -31,10 +31,13 @@ public class CodPlatitoriService {
         return codPlatitoriDTOList;
     }
 
-    public Optional<CodPlatitoriDTO> findByIdCodPlatitori(Integer id) {
-        Optional<CodPlatitori> codPlatitoriOptional = codPlatitoriRepository.findById(id);
-        Optional<CodPlatitoriDTO> codPlatitoriDTOOptional = codPlatitoriMapper.mapToCodPlatitoriDTOOptional(codPlatitoriOptional);
-        return codPlatitoriDTOOptional;
+    public CodPlatitoriDTO findByIdCodPlatitori(Integer id) {
+//        Optional<CodPlatitori> codPlatitoriOptional = codPlatitoriRepository.findById(id);
+//        Optional<CodPlatitoriDTO> codPlatitoriDTOOptional = codPlatitoriMapper.mapToCodPlatitoriDTOOptional(codPlatitoriOptional);
+//        return codPlatitoriDTOOptional;
+        CodPlatitori codPlatitori = codPlatitoriRepository.getById(id);
+        CodPlatitoriDTO codPlatitoriDTO = codPlatitoriMapper.mapToCodPlatitoriDTO(codPlatitori);
+        return codPlatitoriDTO;
     }
 
     public CodPlatitori saveCodPlatitori(CodPlatitoriDTO codPlatitoriDTO) {
