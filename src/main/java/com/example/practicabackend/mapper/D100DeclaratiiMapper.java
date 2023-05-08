@@ -5,6 +5,8 @@ import com.example.practicabackend.model.D100Declaratii;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface D100DeclaratiiMapper {
     D100DeclaratiiMapper MAPPER = Mappers.getMapper(D100DeclaratiiMapper.class);
@@ -12,4 +14,6 @@ public interface D100DeclaratiiMapper {
     D100DeclaratiiDTO mapToD100DeclaratiiDTO(D100Declaratii d100Declaratii);
 
     D100Declaratii mapToD100Declaratii(D100DeclaratiiDTO d100DeclaratiiDTO);
+
+    List<D100DeclaratiiDTO> mapToD100DeclaratiiDTOList(List<D100Declaratii> d100DeclaratiiList);
 }

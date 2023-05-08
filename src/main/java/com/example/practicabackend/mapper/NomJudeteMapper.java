@@ -5,6 +5,8 @@ import com.example.practicabackend.model.NomJudete;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface NomJudeteMapper {
     NomJudeteMapper MAPPER = Mappers.getMapper(NomJudeteMapper.class);
@@ -12,4 +14,6 @@ public interface NomJudeteMapper {
     NomJudeteDTO mapToNomJudeteDTO(NomJudete nomJudete);
 
     NomJudete mapToNomJudete(NomJudeteDTO nomJudeteDTO);
+
+    List<NomJudeteDTO> mapToNomJudeteDTOList(List<NomJudete> nomJudeteList);
 }

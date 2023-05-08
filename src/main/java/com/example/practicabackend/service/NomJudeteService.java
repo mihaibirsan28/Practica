@@ -4,6 +4,7 @@ import com.example.practicabackend.dto.CodAdreseDTO;
 import com.example.practicabackend.dto.NomJudeteDTO;
 import com.example.practicabackend.mapper.CodAdreseMapper;
 import com.example.practicabackend.mapper.NomJudeteMapper;
+import com.example.practicabackend.model.NomJudete;
 import com.example.practicabackend.repository.CodAdreseRepository;
 import com.example.practicabackend.repository.NomJudeteRepository;
 import jakarta.transaction.Transactional;
@@ -26,13 +27,17 @@ public class NomJudeteService {
     private NomJudeteMapper nomJudeteMapper;
 
     public List<NomJudeteDTO> findAllNomJudete() {
-        List<NomJudeteDTO> nomJudeteDTOList = nomJudeteRepository.findAll();
+        List<NomJudete> nomJudeteList = nomJudeteRepository.findAll();
+        List<NomJudeteDTO> nomJudeteDTOList = nomJudeteMapper.mapToNomJudeteDTOList(nomJudeteList);
         return nomJudeteDTOList;
     }
 
-    public Optional<NomJudeteDTO> findByIdNomJudete(Integer id) {
-        Optional<NomJudeteDTO> nomJudeteDTOOptional = nomJudeteRepository.findById(id);
-        return nomJudeteDTOOptional;
+    public NomJudeteDTO findByIdNomJudete(Integer id) {
+        NomJudete nomJudete = nomJudeteRepository.getById(id);
+        NomJudeteDTO nomJudeteDTO = nomJudeteMapper.mapToNomJudeteDTO(nomJudete);
+        return nomJudeteDTO;
+//        Optional<NomJudeteDTO> nomJudeteDTOOptional = nomJudeteRepository.findById(id);
+//        return nomJudeteDTOOptional;
     }
 
     public NomJudeteDTO saveNomJudete(NomJudeteDTO nomJudeteDTO) {

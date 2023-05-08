@@ -28,12 +28,17 @@ public class D100DeclaratiiService {
     private D100DeclaratiiMapper d100DeclaratiiMapper;
 
     public List<D100DeclaratiiDTO> findAllD100Declaratii() {
-        return d100DeclaratiiRepository.findAll();
+        List<D100Declaratii> d100DeclaratiiList = d100DeclaratiiRepository.findAll();
+        List<D100DeclaratiiDTO> d100DeclaratiiDTOList = d100DeclaratiiMapper.mapToD100DeclaratiiDTOList(d100DeclaratiiList);
+        return d100DeclaratiiDTOList;
     }
 
-    public Optional<D100DeclaratiiDTO> findByIdD100Declaratii(Integer id) {
-        Optional<D100DeclaratiiDTO> d100DeclaratiiDTOOptional = d100DeclaratiiRepository.findById(id);
-        return d100DeclaratiiDTOOptional;
+    public D100DeclaratiiDTO findByIdD100Declaratii(Integer id) {
+        D100Declaratii d100Declaratii = d100DeclaratiiRepository.getById(id);
+        D100DeclaratiiDTO d100DeclaratiiDTO = d100DeclaratiiMapper.mapToD100DeclaratiiDTO(d100Declaratii);
+        return d100DeclaratiiDTO;
+//        Optional<D100DeclaratiiDTO> d100DeclaratiiDTOOptional = d100DeclaratiiRepository.findById(id);
+//        return d100DeclaratiiDTOOptional;
     }
 
     public D100DeclaratiiDTO saveD100Declaratii(D100DeclaratiiDTO d100DeclaratiiDTO) {
